@@ -31,7 +31,7 @@ class AuctionIndexPage extends Component {
         return(
             <main>
                 <h1>Auctions</h1>
-                <ul>
+                <ul className="no-bullets">
                     {
                         auctions.map(auction => (
                             <li key={auction.id}>    

@@ -3,7 +3,7 @@ import BidDetails from './BidDetails';
 
 function BidList(props) {    
     return(
-        <ul>
+        <ul className="no-bullets">
         {
             props.bids.map(bid => (
                 <li key={bid.id}>
