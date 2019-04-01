@@ -27,7 +27,14 @@ class AuctionIndexPage extends Component {
 					<h3>Loading...</h3>
 				</main>
 			);
-		}
+        }
+        if (auctions.length === 0) {
+			return (
+				<main>
+					<h1>There can be no auctions if they were never raised!</h1>
+				</main>
+			);
+        }
         return(
             <main>
                 <h1>Auctions</h1>
