@@ -7,7 +7,8 @@ function AuctionDetails(props) {
             <p>
                 {props.description}<br/>
                 By: {props.seller.full_name}<br/>
-                Current Price: {props.reserve_price}
+                Current Price: {props.reserve_price}<br />
+                Ends at: {props.ends_at}
             </p>
             <p>
                 <small>Created {props.created_at.toLocaleString()}</small>

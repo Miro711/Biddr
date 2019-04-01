@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Auction } from '../requests';
 class AuctionIndexPage extends Component {
     constructor(props){
@@ -35,9 +36,9 @@ class AuctionIndexPage extends Component {
                         auctions.map(auction => (
                             <li key={auction.id}>    
                                 <p>
-                                    {auction.title}
+                                    <Link to={`/auctions/${auction.id}`}>{auction.title}</Link>
                                     <br/>
-                                    <small>Created {auction.created_at.toLocaleString()}</small>
+                                    <small>Posted on {auction.created_at.toLocaleString()}</small>
                                 </p>
                             </li>
                         ))

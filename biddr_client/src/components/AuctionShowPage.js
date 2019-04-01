@@ -14,7 +14,7 @@ class AuctionShowPage extends Component {
     }
 
     componentDidMount() {
-        Auction.one(1).then((auction) => {
+        Auction.one(this.props.match.params.id).then((auction) => {
             this.setState({
                 auction: auction,
                 isLoading: false,
@@ -41,7 +41,7 @@ class AuctionShowPage extends Component {
         return(
             <main>
                 <AuctionDetails {...auction}/>
-                <h2>Bids</h2>
+                <h2>Previous Bids</h2>
                 <BidList bids={auction.bids} />
                 
             </main>
