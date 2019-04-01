@@ -5,6 +5,7 @@ import AuctionShowPage from './AuctionShowPage';
 import AuctionIndexPage from './AuctionIndexPage';
 import NavBar from './NavBar';
 import SignInPage from './SignInPage';
+import AuctionNewPage from './AuctionNewPage';
 import { User, Session } from '../requests';
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/" exact component={WelcomePage} />
                         <Route path="/auctions/" exact component={AuctionIndexPage} />
+                        <Route path="/auctions/new" component={AuctionNewPage} />
                         <Route path="/auctions/:id" component={AuctionShowPage} />
                         <Route path="/sign_in" render={routeProps => (
                                 <SignInPage onSignIn={this.getUser} {...routeProps}/>
