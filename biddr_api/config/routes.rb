@@ -6,6 +6,9 @@ Rails.application.routes.draw do
         resources :bids, only: [:create]
       end
       resource :session, only: [:create, :destroy] # /api/v1/session
+      resources :users, only: [] do
+        get :current, on: :collection # /api/v1/users/current
+      end
     end
   end
 end
