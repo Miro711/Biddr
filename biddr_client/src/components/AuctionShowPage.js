@@ -17,15 +17,14 @@ class AuctionShowPage extends Component {
     }
 
     createBid(params){
-        console.log(this.props.match.params.id)
         Bid.create(this.props.match.params.id, params).then(data => {
             if (data.errors) {
                 this.setState({
                     errors: data.errors
                 });
+            } else if (data.status === 401) {
+                this.props.history.push(`/sign_in`);
             } else {
-                // this.props.history.push(`/auctions/${this.props.match.params.id}`);     
-                //this.setState({ isSubmitted: true });  
                 window.location.reload()   
             }
         });
