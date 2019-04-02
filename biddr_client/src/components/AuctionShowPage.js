@@ -25,7 +25,11 @@ class AuctionShowPage extends Component {
             } else if (data.status === 401) {
                 this.props.history.push(`/sign_in`);
             } else {
-                window.location.reload()   
+                Bid.one(this.props.match.params.id, data.id).then(bid => {
+                    let temp = {...this.state.auction};
+                    temp.bids=[bid].concat(this.state.auction.bids);
+                    this.setState({auction: temp});
+                });
             }
         });
     }

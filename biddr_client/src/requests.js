@@ -92,6 +92,11 @@ const Bid = {
 			},
 			body: JSON.stringify(params),
 		}).then((res) => res.json());
+	},
+	one(auction_id, id) {
+		return fetch(`${BASE_URL}/auctions/${auction_id}/bids/${id}`, {
+			credentials: 'include',
+		}).then((res) => res.json());
 	}
 };
 

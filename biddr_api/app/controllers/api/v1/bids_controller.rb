@@ -9,8 +9,16 @@ class Api::V1::BidsController < ApplicationController
         render json: {id: bid.id}
     end
 
+    def show
+        render json: bid
+    end
+
     private
     def bid_params
         params.require(:bid).permit(:price)
+    end
+
+    def bid
+        @bid ||= Bid.find params[:id]
     end
 end
