@@ -11,7 +11,7 @@ function AuctionDetails(props) {
                 Ends at: {props.ends_at}
             </p>
             <p>
-                <small>Created {props.created_at.toLocaleString()}</small>
+                <small>Created {new Date(props.created_at).toLocaleString()}</small>
             </p>
         </div>
     );

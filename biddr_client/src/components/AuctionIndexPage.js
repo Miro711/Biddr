@@ -45,13 +45,13 @@ class AuctionIndexPage extends Component {
                                 <p>
                                     <Link to={`/auctions/${auction.id}`}>{auction.title}</Link>
                                     <br/>
-                                    <small>Posted on {auction.created_at.toLocaleString()}</small>
+                                    <small>Posted on {new Date(auction.created_at).toLocaleString()}</small>
                                 </p>
                             </li>
                         ))
                     }    
                 </ul>
-</main>
+            </main>
         );
     }
 }

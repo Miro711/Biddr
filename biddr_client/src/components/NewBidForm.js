@@ -28,7 +28,7 @@ function NewBidForm(props) {
                     <textarea name="price" id="price" />
                 </div>
                 <div>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Bid" />
                 </div>
         </form>
       </div>

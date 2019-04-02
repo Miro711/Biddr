@@ -8,7 +8,7 @@ function BidDetails(props) {
                 ${props.price} <br />
                 {/* By {props.user.full_name} */}
             </p>
-            <p>Bidded on {props.created_at.toLocaleString()}</p>
+            <p>Bidded on {new Date(props.created_at).toLocaleString()}</p>
         </div>
     );
 }
