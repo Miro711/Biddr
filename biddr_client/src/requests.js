@@ -80,4 +80,19 @@ const User = {
 	}
 };
 
-export { Auction, Session, User };
+const Bid = {
+	// creating a Bid
+	create(auction_id, params) {
+		// `params` is an object that represents a Bid
+		return fetch(`${BASE_URL}/auctions/${auction_id}/bids`, {
+			method: 'POST',
+			credentials: 'include',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(params),
+		}).then((res) => res.json());
+	}
+};
+
+export { Auction, Bid, Session, User };

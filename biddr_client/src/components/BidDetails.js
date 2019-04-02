@@ -5,7 +5,7 @@ function BidDetails(props) {
     return (
         <div className="BidDetails">
             <p>
-                {props.price} <br />
+                ${props.price} <br />
                 {/* By {props.user.full_name} */}
             </p>
             <p>Bidded on {props.created_at.toLocaleString()}</p>

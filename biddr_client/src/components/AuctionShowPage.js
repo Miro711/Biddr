@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import AuctionDetails from './AuctionDetails';
 import BidList from './BidList';
+import NewBidForm from './NewBidForm';
 import '../styles/page.css';
-import { Auction } from '../requests';
+import { Auction, Bid } from '../requests';
 
 class AuctionShowPage extends Component {
     constructor(props){
@@ -10,7 +11,24 @@ class AuctionShowPage extends Component {
         this.state = {
             auction: null,
             isLoading: true,
+            errors: [],
         }
+        this.createBid = this.createBid.bind(this);
+    }
+
+    createBid(params){
+        console.log(this.props.match.params.id)
+        Bid.create(this.props.match.params.id, params).then(data => {
+            if (data.errors) {
+                this.setState({
+                    errors: data.errors
+                });
+            } else {
+                // this.props.history.push(`/auctions/${this.props.match.params.id}`);     
+                //this.setState({ isSubmitted: true });  
+                window.location.reload()   
+            }
+        });
     }
 
     componentDidMount() {
@@ -23,7 +41,7 @@ class AuctionShowPage extends Component {
     }
 
     render(){
-        const { auction, isLoading } = this.state;
+        const { auction, isLoading, errors } = this.state;
         if (isLoading) {
 			return (
 				<main>
@@ -41,6 +59,7 @@ class AuctionShowPage extends Component {
         return(
             <main>
                 <AuctionDetails {...auction}/>
+                <NewBidForm onSubmit={this.createBid} errors={errors}/>
                 <h2>Previous Bids</h2>
                 <BidList bids={auction.bids} />
                 

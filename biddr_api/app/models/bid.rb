@@ -1,5 +1,5 @@
 class Bid < ApplicationRecord
   belongs_to :auction
   belongs_to :user
-  validates(:price, presence: {message: "price must exist"})
+  validates(:price, presence: true, numericality: { greater_than_or_equal_to: 0 })
 end
